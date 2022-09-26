@@ -1,13 +1,11 @@
 <script lang="ts">
-export default {
-  components: {},
-
-  setup(props: any, context: any) {}
-};
+export default {};
 </script>
 
 <template>
-  <button><slot/></button>
+  <button>
+    <slot/>
+  </button>
 </template>
 
 <style lang="scss" scoped>
