@@ -1,9 +1,9 @@
 <script lang="ts">
-import SwitchDemo from '../../lib/SwitchDemo.vue';
+import Switch from '../../lib/Switch.vue';
 import {ref} from 'vue';
 
 export default {
-  components: {SwitchDemo},
+  components: {Switch},
   setup() {
     const bool = ref(true);
     return {bool};
@@ -12,7 +12,7 @@ export default {
 </script>
 
 <template>
-  <SwitchDemo v-model:value="bool"/>
+  <Switch v-model:value="bool"/>
 </template>
 
 <style lang="scss" scoped>

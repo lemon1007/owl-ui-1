@@ -65,6 +65,7 @@ aside {
     top: 0;
     left: 0;
     padding: 73px 16px 16px 16px;
+    z-index: 8;
   }
 }
 

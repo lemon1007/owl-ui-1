@@ -1,8 +1,6 @@
 <script lang="ts">
-import Button from '../components/doc/Button.vue';
 
 export default {
-  components: {Button},
   props: {
     value: Boolean
   },
