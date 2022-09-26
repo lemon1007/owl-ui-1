@@ -1,10 +1,17 @@
-<script setup lang="ts">
+<script lang="ts">
+import {provide, ref} from 'vue';
+
+export default {
+  name: 'App',
+  setup() {
+    const asideVisible = ref<boolean>(false);
+    provide('x', asideVisible);
+  }
+};
 
 </script>
 
 <template>
-<!--  <router-link to="/">首页 |</router-link>-->
-<!--  <router-link to="/doc">文档</router-link>-->
   <router-view/>
 </template>
 
