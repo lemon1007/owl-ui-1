@@ -14,7 +14,15 @@ export default {
     level: {
       type: String,
       default: 'normal'
-    }
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    loading: {
+      type: Boolean,
+      default: false
+    },
   },
   setup(props: any, context: any) {
     const {theme, size, level} = props;
@@ -31,7 +39,10 @@ export default {
 </script>
 
 <template>
-  <button class="owl-button" :class="classes">
+  <button class="owl-button"
+          :class="classes"
+          :disabled="disabled">
+    <span v-if="loading" class="owl-loadingIndicator"></span>
     <slot/>
   </button>
 </template>
@@ -51,18 +62,6 @@ $color: #3ab4e8;
   white-space: nowrap;
   background: white;
   border-radius: 7px;
-
-  &.owl-theme-button {
-    &:hover {
-      border: 1px solid $border-color;
-      color: $color;
-    }
-
-    //&:focus {
-    //  border: 1px solid $border-color;
-    //  color: $color;
-    //}
-  }
 
   &.owl-theme-link {
     background: none;
@@ -96,24 +95,51 @@ $color: #3ab4e8;
     color: white;
     border: #3ab4e8 1px solid;
     background: $color;
-
-    &:hover {
-      color: white;
-      border: #3ab4e8 1px solid;
-      background: $color;
-    }
   }
 
   &.owl-level-danger {
     background: red;
     color: white;
     border: red 1px solid;
+  }
 
-    &:hover {
-      background: red;
-      color: white;
-      border: red 1px solid;
+  &.owl-theme-button {
+    &[disabled] {
+      cursor: not-allowed;
+      color: darkgray;
+      border: 1px solid darkgray;
     }
+  }
+
+  &.owl-theme-link, &.owl-theme-text {
+    &[disabled] {
+      cursor: not-allowed;
+      color: darkgray;
+      border: none;
+      background: none;
+    }
+  }
+
+  > .owl-loadingIndicator {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    margin-right: 4px;
+    border-radius: 8px;
+    border-color: #3ab4e8 #6de6fc #5ccdaf transparent;
+    border-style: solid;
+    border-width: 2px;
+    animation: owl-spin 1s infinite linear;
+  }
+}
+
+@keyframes owl-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
   }
 }
 
