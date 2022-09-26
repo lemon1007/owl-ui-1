@@ -17,6 +17,10 @@ export default {
     },
     cancel: {
       type: Function
+    },
+    title: {
+      type: String,
+      default: '标题'
     }
   },
   setup(props: any, context: any) {
@@ -48,12 +52,13 @@ export default {
     <div class="owl-dialog-wrapper">
       <div class="owl-dialog">
         <header>
-          <span>标题</span>
+          <span>
+            {{ title }}
+          </span>
           <span @click="close" class="owl-dialog-close"></span>
         </header>
         <main>
-          <p>第一行</p>
-          <p>第二行</p>
+          <slot/>
         </main>
         <footer>
           <Button @click="ok">确定</Button>

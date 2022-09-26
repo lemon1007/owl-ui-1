@@ -30,7 +30,10 @@ export default {
   <Dialog v-model:visible="visible"
           :closeOnClickOverlay="false"
           :ok="ok"
-          :cancel="cancel"/>
+          :cancel="cancel">
+    <p>context的内容</p>
+    <p>context的内容2</p>
+  </Dialog>
 </template>
 
 <style lang="scss" scoped>
