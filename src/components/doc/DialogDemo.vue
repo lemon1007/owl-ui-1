@@ -1,6 +1,7 @@
 <script lang="ts">
 import Dialog from '../../lib/Dialog.vue';
 import Button from '../../lib/Button.vue';
+import {openDialog} from '../../lib/openDialog';
 import {ref} from 'vue';
 
 export default {
@@ -16,9 +17,22 @@ export default {
     };
     const cancel = () => {
       // return false无法关闭，return true可以关闭
-      return;
+      return true;
     };
-    return {visible, toggle, ok, cancel};
+    // 示例2
+    const showDialog = () => {
+      openDialog({
+        title: '标题',
+        content: '这里是一句话传dialog的正文',
+        ok() {
+          console.log('ok');
+        },
+        cancel() {
+          console.log('cancel');
+        }
+      });
+    };
+    return {visible, toggle, ok, cancel, showDialog};
   }
 };
 </script>
@@ -28,18 +42,23 @@ export default {
   <h2>示例1</h2>
   <Button @click="toggle">toggle</Button>
   <Dialog v-model:visible="visible"
-          :closeOnClickOverlay="false"
+          :closeOnClickOverlay="true"
           :ok="ok"
           :cancel="cancel">
     <template v-slot:title>
       <span>这是标题</span>
     </template>
     <template v-slot:content>
-      <p>context的内容</p>
-      <p>context的内容2</p>
+      <p>这里是context的内容</p>
     </template>
   </Dialog>
+
+  <h2>示例2</h2>
+  <Button @click="showDialog">show</Button>
 </template>
 
 <style lang="scss" scoped>
+h2 {
+  margin-top: 20px;
+}
 </style>
