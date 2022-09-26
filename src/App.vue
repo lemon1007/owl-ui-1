@@ -5,7 +5,8 @@ import {router} from './router';
 export default {
   name: 'App',
   setup() {
-    const asideVisible = ref<boolean>(false);
+    const width = document.documentElement.clientWidth;
+    const asideVisible = ref(width > 500);
     provide('asideVisible', asideVisible);
 
     router.afterEach(() => {
@@ -20,5 +21,5 @@ export default {
   <router-view/>
 </template>
 
-<style>
+<style lang="scss">
 </style>
