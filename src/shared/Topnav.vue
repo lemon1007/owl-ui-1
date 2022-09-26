@@ -18,7 +18,7 @@
   width: 100%;
   background-color: #553704;
   color: white;
-  height: 7vh;
+  height: 8vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
