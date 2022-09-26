@@ -44,22 +44,24 @@ export default {
 
 <template>
   <template v-if="visible">
-    <div class="owl-dialog-overlay" @click="closeOnClickOverlay"></div>
-    <div class="owl-dialog-wrapper">
-      <div class="owl-dialog">
-        <header>
-          <slot name="title"/>
-          <span @click="close" class="owl-dialog-close"></span>
-        </header>
-        <main>
-          <slot name="content"/>
-        </main>
-        <footer>
-          <Button @click="ok">确定</Button>
-          <Button level="main" @click="cancel">关闭</Button>
-        </footer>
+    <Teleport to="body">
+      <div class="owl-dialog-overlay" @click="closeOnClickOverlay"></div>
+      <div class="owl-dialog-wrapper">
+        <div class="owl-dialog">
+          <header>
+            <slot name="title"/>
+            <span @click="close" class="owl-dialog-close"></span>
+          </header>
+          <main>
+            <slot name="content"/>
+          </main>
+          <footer>
+            <Button @click="ok">确定</Button>
+            <Button level="main" @click="cancel">关闭</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </Teleport>
   </template>
 </template>
 
