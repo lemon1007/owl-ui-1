@@ -1,5 +1,5 @@
 <script lang="ts">
-import TopNav from '../shared/Topnav.vue';
+import TopNav from '../components/Topnav.vue';
 
 export default {
   components: {TopNav}
@@ -13,10 +13,8 @@ export default {
       <h1>猫头鹰UI</h1>
       <h2>一个简便、特别的UI框架</h2>
       <p class="action">
-        <a href="https://github.com/lemon19961007/owl-ui">GitHub</a>
-        <a>
-          <router-link to="/doc">开始</router-link>
-        </a>
+        <a href="https://github.com/lemon19961007/owl-ui" class="a">GitHub</a>
+        <router-link to="/doc" class="a">开始</router-link>
       </p>
     </div>
   </div>
@@ -42,9 +40,9 @@ export default {
   .action {
     padding: 8px 0;
 
-    a {
+    .a {
       background-color: #553704;
-      padding: 5px 10px;
+      padding: 8px 16px;
       border-radius: 14px;
       color: white;
       margin: 0 8px;

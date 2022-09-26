@@ -1,5 +1,5 @@
 <script lang="ts">
-import TopNav from '../shared/Topnav.vue';
+import TopNav from '../components/Topnav.vue';
 import {inject, Ref} from 'vue';
 
 export default {
@@ -67,4 +67,25 @@ aside {
     padding: 73px 16px 16px 16px;
   }
 }
+
+main {
+  width: calc(100vw - 150px);
+  margin-left: 150px;
+  height: 92vh;
+  padding: 20px;
+  background: green;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@media (max-width: 500px) {
+  main {
+    width: 100vw;
+    margin-left: 0;
+  }
+}
+
 </style>
