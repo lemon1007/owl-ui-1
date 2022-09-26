@@ -1,72 +1,13 @@
 <script lang="ts">
-export default {};
+import SwitchDemo from '../../lib/SwitchDemo.vue';
+
+export default {
+  components: {SwitchDemo}
+};
 </script>
 
 <template>
-  <ul>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-    <li>Switch的文档</li>
-  </ul>
+  <SwitchDemo/>
 </template>
 
 <style lang="scss" scoped>

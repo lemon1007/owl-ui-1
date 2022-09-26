@@ -73,7 +73,7 @@ main {
   margin-left: 150px;
   height: 92vh;
   padding: 20px;
-  background: green;
+  background: #f5f5f5;
   overflow: scroll;
 
   &::-webkit-scrollbar {
