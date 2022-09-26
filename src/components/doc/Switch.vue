@@ -1,13 +1,18 @@
 <script lang="ts">
 import SwitchDemo from '../../lib/SwitchDemo.vue';
+import {ref} from 'vue';
 
 export default {
-  components: {SwitchDemo}
+  components: {SwitchDemo},
+  setup() {
+    const checked = ref(true);
+    return {checked};
+  }
 };
 </script>
 
 <template>
-  <SwitchDemo/>
+  <SwitchDemo v-model:value="checked"/>
 </template>
 
 <style lang="scss" scoped>
