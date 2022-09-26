@@ -31,8 +31,13 @@ export default {
           :closeOnClickOverlay="false"
           :ok="ok"
           :cancel="cancel">
-    <p>context的内容</p>
-    <p>context的内容2</p>
+    <template v-slot:title>
+      <span>这是标题</span>
+    </template>
+    <template v-slot:content>
+      <p>context的内容</p>
+      <p>context的内容2</p>
+    </template>
   </Dialog>
 </template>
 

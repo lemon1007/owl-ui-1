@@ -18,10 +18,6 @@ export default {
     cancel: {
       type: Function
     },
-    title: {
-      type: String,
-      default: '标题'
-    }
   },
   setup(props: any, context: any) {
     const close = () => {
@@ -52,13 +48,11 @@ export default {
     <div class="owl-dialog-wrapper">
       <div class="owl-dialog">
         <header>
-          <span>
-            {{ title }}
-          </span>
+          <slot name="title"/>
           <span @click="close" class="owl-dialog-close"></span>
         </header>
         <main>
-          <slot/>
+          <slot name="content"/>
         </main>
         <footer>
           <Button @click="ok">确定</Button>
