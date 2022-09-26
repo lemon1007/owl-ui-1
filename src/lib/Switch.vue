@@ -15,16 +15,16 @@ export default {
 
 <template>
   <div>
-    <button :class="{checked:value}" @click="toggle">
+    <button :class="{'owl-checked':value}" @click="toggle" class="owl-switch">
       <span></span>
     </button>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $h: 22px;
 $h2: $h - 4px;
-button {
+.owl-switch {
   height: $h;
   width: $h * 2;
   border: none;
@@ -32,7 +32,7 @@ button {
   border-radius: $h / 2;
   position: relative;
 
-  span {
+  > span {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -43,11 +43,28 @@ button {
     transition: left 250ms;
   }
 
-  &.checked {
+  &.owl-checked {
     background: #553704;
 
     > span {
       left: calc(100% - #{$h2} - 2px);
+    }
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:active {
+    > span {
+      width: $h2 + 4px;
+    }
+  }
+
+  &.owl-checked:active {
+    > span {
+      width: $h2 + 4px;
+      margin-left: -4px;
     }
   }
 }

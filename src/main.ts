@@ -1,6 +1,7 @@
+import '../src/lib/owl.scss'
+import './scss/reset.scss';
 import {createApp} from 'vue';
 import App from './App.vue';
-import './scss/reset.scss';
 import {router} from './router';
 
 const app = createApp(App);

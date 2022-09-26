@@ -10,12 +10,12 @@ export default {
 </script>
 
 <template>
-  <button class="owl-button" :class="`theme-${theme}`">
+  <button class="owl-button" :class="`owl-theme-${theme}`">
     <slot/>
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 $border-color: #3ab4e8;
 $color: #3ab4e8;
 .owl-button {
