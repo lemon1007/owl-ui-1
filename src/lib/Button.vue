@@ -29,8 +29,10 @@ $color: #3ab4e8;
   align-items: center;
   white-space: nowrap;
   background: white;
-  border-radius: 10px;
+  border-radius: 7px;
+}
 
+.owl-theme-button {
   &:hover {
     border: 1px solid $border-color;
     color: $color;
@@ -39,6 +41,25 @@ $color: #3ab4e8;
   &:focus {
     border: 1px solid $border-color;
     color: $color;
+  }
+}
+
+.owl-theme-link {
+  background: none;
+  border: none;
+  color: $color;
+
+  &:hover {
+    color: #6de6fc;
+  }
+}
+
+.owl-theme-text {
+  border: none;
+  background: none;
+
+  &:hover {
+    background: white;
   }
 }
 </style>
