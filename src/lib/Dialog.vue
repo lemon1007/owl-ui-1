@@ -7,28 +7,57 @@ export default {
     visible: {
       type: Boolean,
       default: false
+    },
+    closeOnClickOverlay: {
+      type: Boolean,
+      default: true
+    },
+    ok: {
+      type: Function,
+    },
+    cancel: {
+      type: Function
     }
   },
-  setup(props: any, context: any) {}
+  setup(props: any, context: any) {
+    const close = () => {
+      context.emit('update:visible', false);
+    };
+    const closeOnClickOverlay = () => {
+      if (props.closeOnClickOverlay) {
+        close();
+      }
+    };
+    const ok = () => {
+      if (props.ok?.() !== false) {
+        close();
+      }
+    };
+    const cancel = () => {
+      context.emit('cancel');
+      close();
+    };
+    return {close, closeOnClickOverlay, cancel, ok};
+  }
 };
 </script>
 
 <template>
   <template v-if="visible">
-    <div class="owl-dialog-overlay"></div>
+    <div class="owl-dialog-overlay" @click="closeOnClickOverlay"></div>
     <div class="owl-dialog-wrapper">
       <div class="owl-dialog">
         <header>
           <span>标题</span>
-          <span class="owl-dialog-close"></span>
+          <span @click="close" class="owl-dialog-close"></span>
         </header>
         <main>
           <p>第一行</p>
           <p>第二行</p>
         </main>
         <footer>
-          <Button>确定</Button>
-          <Button level="main">关闭</Button>
+          <Button @click="ok">确定</Button>
+          <Button level="main" @click="cancel">关闭</Button>
         </footer>
       </div>
     </div>

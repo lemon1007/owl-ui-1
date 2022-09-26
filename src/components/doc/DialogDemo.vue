@@ -6,11 +6,19 @@ import {ref} from 'vue';
 export default {
   components: {Button, Dialog},
   setup() {
-    const x = ref(false);
+    const visible = ref(false);
     const toggle = () => {
-      x.value = !x.value;
+      visible.value = !visible.value;
     };
-    return {x, toggle};
+    const ok = () => {
+      // return false无法关闭，return true可以关闭
+      return true;
+    };
+    const cancel = () => {
+      // return false无法关闭，return true可以关闭
+      return;
+    };
+    return {visible, toggle, ok, cancel};
   }
 };
 </script>
@@ -19,7 +27,10 @@ export default {
   <div>Dialog示例</div>
   <h2>示例1</h2>
   <Button @click="toggle">toggle</Button>
-  <Dialog :visible="x"/>
+  <Dialog v-model:visible="visible"
+          :closeOnClickOverlay="false"
+          :ok="ok"
+          :cancel="cancel"/>
 </template>
 
 <style lang="scss" scoped>
