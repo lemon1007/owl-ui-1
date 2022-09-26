@@ -5,7 +5,7 @@ import {inject, Ref} from 'vue';
 export default {
   components: {TopNav},
   setup() {
-    const asideVisible = inject<Ref<boolean>>('x');
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
     return {asideVisible};
   }
 };
@@ -32,7 +32,9 @@ export default {
           </li>
         </ol>
       </aside>
-      <main>主内容</main>
+      <main>
+        <router-view/>
+      </main>
     </div>
   </div>
 </template>

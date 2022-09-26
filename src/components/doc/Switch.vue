@@ -3,7 +3,7 @@ export default {};
 </script>
 
 <template>
-  <div>Switch</div>
+  <div>Switch的文档</div>
 </template>
 
 <style lang="scss" scoped>

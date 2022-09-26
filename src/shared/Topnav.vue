@@ -3,7 +3,7 @@ import {inject, Ref} from 'vue';
 
 export default {
   setup() {
-    const asideVisible = inject<Ref<boolean>>('x');
+    const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
       if (asideVisible) {
         asideVisible.value = !asideVisible.value;
