@@ -1,9 +1,16 @@
 <script lang="ts">
-export default {};
+export default {
+  props: {
+    theme: {
+      type: String,
+      default: 'button'
+    }
+  },
+};
 </script>
 
 <template>
-  <button>
+  <button class="owl-button" :class="`theme-${theme}`">
     <slot/>
   </button>
 </template>

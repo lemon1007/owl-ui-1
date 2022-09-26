@@ -15,12 +15,10 @@ export default {
 <template>
   <div>Button示例</div>
   <h2>示例1</h2>
-  <Button @click="onClick"
-          @focus="onClick"
-          @mouseover="onClick"
-          size="'small">
-    点击我
-  </Button>
+  <Button>你好</Button>
+  <Button theme="button">你好</Button>
+  <Button theme="link">你好</Button>
+  <Button theme="text">你好</Button>
 </template>
 
 <style lang="scss" scoped>
