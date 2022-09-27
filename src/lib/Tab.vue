@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <div>Tab</div>
+  <slot/>
 </template>
 
 <style lang="scss" scoped>

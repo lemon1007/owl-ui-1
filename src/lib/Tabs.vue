@@ -9,13 +9,20 @@ export default {
         throw new Error('Tabs的子组件必须是Tab');
       }
     });
-    return {defaults};
+
+    const titles = defaults.map((tag: any) => {
+      return tag.props.title;
+    });
+    return {defaults, titles};
   }
 };
 </script>
 
 <template>
-  <div>Tabs组价</div>
+  <div>
+    <div v-for="(t,index) in titles" :key="index">{{ t }}</div>
+    <component v-for="(c,index) in defaults" :is="c" :key="index"/>
+  </div>
 </template>
 
 <style lang="scss" scoped>
