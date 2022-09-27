@@ -54,7 +54,7 @@ export default {
 <style lang="scss" scoped>
 aside {
   width: 150px;
-  padding: 73px 16px 16px 16px;
+  padding: 73px 0 16px 0;
   background-color: #553704;
   color: white;
   position: fixed;
@@ -65,11 +65,19 @@ aside {
 
   > h2 {
     margin-bottom: 4px;
+    padding: 0 16px;
   }
 
   > ol {
     > li {
-      padding: 4px 0;
+      > a {
+        display: block;
+        padding: 4px 16px;
+      }
+
+      .router-link-active {
+        background: #3ab4e8;
+      }
     }
   }
 
@@ -100,10 +108,6 @@ main {
     width: 100vw;
     margin-left: 0;
   }
-}
-
-.router-link-active {
-  
 }
 
 </style>
