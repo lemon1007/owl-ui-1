@@ -16,8 +16,20 @@ export default {
     <TopNav toggleMenuButtonVisible/>
     <div class="content">
       <aside v-if="asideVisible">
+        <h2>文档</h2>
+        <ol>
+          <li>
+            <router-link to="/doc/intro">介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">开始</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">安装</router-link>
+          </li>
+        </ol>
         <h2>组件列表</h2>
-        <ol class="componentsList">
+        <ol>
           <li>
             <router-link to="/doc/switch">Switch组件</router-link>
           </li>
@@ -49,6 +61,7 @@ aside {
   height: 100vh;
   top: 0;
   left: 0;
+  z-index: 8;
 
   > h2 {
     margin-bottom: 4px;
@@ -87,6 +100,10 @@ main {
     width: 100vw;
     margin-left: 0;
   }
+}
+
+.router-link-active {
+  
 }
 
 </style>

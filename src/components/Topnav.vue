@@ -61,7 +61,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 8;
+  z-index: 16;
 
   .logo {
     padding-left: 16px;
