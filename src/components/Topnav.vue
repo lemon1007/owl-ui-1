@@ -16,12 +16,32 @@ export default {
 
 <template>
   <div class="topNav">
-    <div class="logo">LOGO</div>
+    <div class="logo">
+      <svg class="icon">
+        <use xlink:href="#icon-owl"></use>
+      </svg>
+    </div>
     <ul class="menu">
-      <li>菜单1</li>
-      <li>菜单2</li>
+      <li>
+        <a href="https://github.com" class="owl-topNav-a">
+          <svg class="icon">
+            <use xlink:href="#icon-menu"></use>
+          </svg>
+        </a>
+      </li>
+      <li>
+        <router-link to="/doc">
+          <svg class="icon">
+            <use xlink:href="#icon-menu"></use>
+          </svg>
+        </router-link>
+      </li>
     </ul>
-    <span class="toggleAside" @click="toggleAside"></span>
+    <span class="toggleAside" @click="toggleAside">
+      <svg class="icon">
+        <use xlink:href="#icon-menu"></use>
+      </svg>
+    </span>
   </div>
 </template>
 
@@ -40,6 +60,11 @@ export default {
   .logo {
     padding-left: 16px;
     margin-right: auto;
+
+    > svg {
+      width: 45px;
+      height: 45px;
+    }
   }
 
   .menu {
@@ -58,9 +83,13 @@ export default {
     left: 16px;
     width: 24px;
     height: 24px;
-    background-color: black;
     transform: translateY(-50%);
     display: none;
+
+    > svg {
+      width: 23px;
+      height: 23px;
+    }
   }
 
   @media (max-width: 500px) {
@@ -75,4 +104,5 @@ export default {
     }
   }
 }
+
 </style>
