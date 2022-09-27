@@ -1,6 +1,6 @@
 <script lang="ts">
 import Tab from './Tab.vue';
-import {computed} from 'vue';
+import {computed, onMounted, onUpdated, ref} from 'vue';
 
 export default {
   props: {
@@ -9,6 +9,31 @@ export default {
     }
   },
   setup(props: any, context: any) {
+    const navItems = ref<HTMLDivElement[]>([]);
+    // @ts-ignore */
+    const indicator = ref<HTMLDivElement>(null);
+    // @ts-ignore */
+    const container = ref<HTMLDivElement>(null);
+    const underline = () => {
+      const divs = navItems.value;
+      const result = divs.filter(div => div.classList.contains('selected'))[0];
+      console.log(result);
+      const {
+        width
+      } = result.getBoundingClientRect();
+      indicator.value.style.width = width + 'px';
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect();
+      const {
+        left: left2
+      } = result.getBoundingClientRect();
+      const left = left2 - left1;
+      indicator.value.style.left = left + 'px';
+    };
+    onMounted(underline);
+    onUpdated(underline);
+
     const defaults = context.slots.default();
     defaults.forEach((tag: any) => {
       if (tag.type !== Tab) {
@@ -27,21 +52,22 @@ export default {
     const select = (title: string) => {
       context.emit('update:selected', title);
     };
-    return {defaults, titles, select, current};
+    return {defaults, titles, select, current, navItems, indicator, container};
   }
 };
 </script>
 
 <template>
   <div class="owl-tabs">
-    <div class="owl-tabs-nav">
+    <div class="owl-tabs-nav" ref="container">
       <div class="owl-tabs-nav-item"
            :class="{selected:title===selected}"
            @click="select(title)"
            v-for="(title,index) in titles"
-           :key="index">
-        {{ title }}
+           :ref="el => {if(el) navItems[index] = el}"
+           :key="index">{{ title }}
       </div>
+      <div class="owl-tabs-nav-indicator" ref="indicator"></div>
     </div>
     <div class="owl-tabs-content">
       <component :is="current" :key="current.props.title"/>
@@ -58,6 +84,7 @@ $border-color: #d9d9d9;
     display: flex;
     color: $color;
     border-bottom: 1px solid $border-color;
+    position: relative;
 
     &-item {
       padding: 8px 0;
@@ -71,11 +98,16 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
 
-      &:focus {
-        outline: none;
-        background: none;
-      }
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 100px;
+      transition: all 250ms;
     }
   }
 
@@ -87,6 +119,7 @@ $border-color: #d9d9d9;
 
       &.selected {
         display: block;
+
       }
     }
   }
