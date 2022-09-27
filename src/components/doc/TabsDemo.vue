@@ -17,4 +17,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+h2 {
+  margin-top: 20px
+}
 </style>
