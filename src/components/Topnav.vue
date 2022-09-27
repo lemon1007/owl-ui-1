@@ -22,11 +22,11 @@ export default {
 
 <template>
   <div class="topNav">
-    <div class="logo">
+    <router-link to="/" class="logo">
       <svg class="icon">
         <use xlink:href="#icon-owl"></use>
       </svg>
-    </div>
+    </router-link>
     <ul class="menu">
       <li>
         <a href="https://github.com" class="owl-topNav-a">

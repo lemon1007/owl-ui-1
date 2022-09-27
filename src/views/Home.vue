@@ -49,9 +49,8 @@ export default {
 <style lang="scss" scoped>
 
 .topNavAndBanner {
-  height: 100vh;
+  height:100vh;
   .banner {
-    height: 42vh;
     background-color: #f5f5f5;
     clip-path: ellipse(80% 60% at 50% 40%);
     display: flex;
