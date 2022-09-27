@@ -16,16 +16,10 @@ export default {
     // @ts-ignore */
     const container = ref<HTMLDivElement>(null);
     const underline = () => {
-      const {
-        width
-      } = selectedItem.value.getBoundingClientRect();
+      const {width} = selectedItem.value.getBoundingClientRect();
       indicator.value.style.width = width + 'px';
-      const {
-        left: left1
-      } = container.value.getBoundingClientRect();
-      const {
-        left: left2
-      } = selectedItem.value.getBoundingClientRect();
+      const {left: left1} = container.value.getBoundingClientRect();
+      const {left: left2} = selectedItem.value.getBoundingClientRect();
       const left = left2 - left1;
       indicator.value.style.left = left + 'px';
     };
