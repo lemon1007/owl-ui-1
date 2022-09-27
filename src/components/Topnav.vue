@@ -2,6 +2,12 @@
 import {inject, Ref} from 'vue';
 
 export default {
+  props: {
+    toggleMenuButtonVisible: {
+      type: Boolean,
+      default: false
+    }
+  },
   setup() {
     const asideVisible = inject<Ref<boolean>>('asideVisible');
     const toggleAside = () => {
@@ -37,7 +43,7 @@ export default {
         </router-link>
       </li>
     </ul>
-    <span class="toggleAside" @click="toggleAside">
+    <span v-if="toggleMenuButtonVisible" class="toggleAside" @click="toggleAside">
       <svg class="icon">
         <use xlink:href="#icon-menu"></use>
       </svg>

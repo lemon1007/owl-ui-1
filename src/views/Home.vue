@@ -47,82 +47,88 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.banner {
-  height: 42vh;
-  background-color: #f5f5f5;
-  clip-path: ellipse(80% 60% at 50% 40%);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
 
-  h1 {
-    padding-bottom: 7px;
-  }
+.topNavAndBanner {
+  height: 100vh;
+  .banner {
+    height: 42vh;
+    background-color: #f5f5f5;
+    clip-path: ellipse(80% 60% at 50% 40%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 100px;
 
-  h2 {
-    padding-bottom: 7px;
-  }
+    h1 {
+      padding-bottom: 7px;
+    }
 
-  .action {
-    padding: 8px 0;
-    margin-top: 5px;
+    h2 {
+      padding-bottom: 7px;
+    }
 
-    .start {
-      background-color: #553704;
-      padding: 8px 24px;
-      border-radius: 14px;
-      color: white;
+    .action {
+      padding: 8px 0;
+      margin-top: 5px;
 
-      &:hover {
-        border: none;
+      .start {
+        background-color: #553704;
+        padding: 8px 24px;
+        border-radius: 14px;
+        color: white;
+
+        &:hover {
+          border: none;
+        }
       }
     }
   }
-}
 
-.features {
-  margin: 64px auto;
-  width: 400px;
+  .features {
+    margin: 64px auto;
+    width: 400px;
 
-  @media (min-width: 800px) {
-    width: 800px;
-  }
-  @media (min-width: 1200px) {
-    width: 1200px;
-  }
+    @media (min-width: 800px) {
+      width: 800px;
+    }
+    @media (min-width: 1200px) {
+      width: 1200px;
+    }
 
-  > ul {
-    display: flex;
-    flex-wrap: wrap;
+    > ul {
+      display: flex;
+      flex-wrap: wrap;
 
-    > li {
-      width: 400px;
-      margin: 16px 0;
-      display: grid;
-      justify-content: start;
-      align-content: space-between;
-      grid-template-areas:
+      > li {
+        width: 400px;
+        margin: 16px 0;
+        display: grid;
+        justify-content: start;
+        align-content: space-between;
+        grid-template-areas:
         "icon title"
         "icon text";
-      grid-template-columns: 80px auto;
-      grid-template-rows: 1fr auto;
+        grid-template-columns: 80px auto;
+        grid-template-rows: 1fr auto;
 
-      > svg {
-        grid-area: icon;
-        width: 64px;
-        height: 64px;
-      }
+        > svg {
+          grid-area: icon;
+          width: 64px;
+          height: 64px;
+        }
 
-      > h3 {
-        grid-area: title;
-        font-size: 28px;
-      }
+        > h3 {
+          grid-area: title;
+          font-size: 28px;
+        }
 
-      > p {
-        grid-area: text
+        > p {
+          grid-area: text
+        }
       }
     }
   }
 }
+
 </style>
