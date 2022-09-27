@@ -1,7 +1,13 @@
 <script lang="ts">
 import Tab from './Tab.vue';
+import {computed} from 'vue';
 
 export default {
+  props: {
+    selected: {
+      type: String
+    }
+  },
   setup(props: any, context: any) {
     const defaults = context.slots.default();
     defaults.forEach((tag: any) => {
@@ -10,10 +16,18 @@ export default {
       }
     });
 
+    const current = computed(() => {
+      return defaults.find((tag: any) => tag.props.title === props.selected);
+    });
+
     const titles = defaults.map((tag: any) => {
       return tag.props.title;
     });
-    return {defaults, titles};
+
+    const select = (title: string) => {
+      context.emit('update:selected', title);
+    };
+    return {defaults, titles, select, current};
   }
 };
 </script>
@@ -21,10 +35,16 @@ export default {
 <template>
   <div class="owl-tabs">
     <div class="owl-tabs-nav">
-      <div class="owl-tabs-nav-item" v-for="(t,index) in titles" :key="index">{{ t }}</div>
+      <div class="owl-tabs-nav-item"
+           :class="{selected:title===selected}"
+           @click="select(title)"
+           v-for="(title,index) in titles"
+           :key="index">
+        {{ title }}
+      </div>
     </div>
     <div class="owl-tabs-content">
-      <component class="owl-tabs-content-item"  v-for="(c,index) in defaults" :is="c" :key="index"/>
+      <component :is="current" :key="current.props.title"/>
     </div>
   </div>
 </template>
@@ -51,11 +71,24 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+
+      &:focus {
+        outline: none;
+        background: none;
+      }
     }
   }
 
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
