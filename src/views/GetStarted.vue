@@ -5,7 +5,9 @@ export default {
 </script>
 
 <template>
-  <div>GetStart</div>
+  <article class="markdown-body">
+    <h1>开始</h1>
+  </article>
 </template>
 
 <style lang="scss" scoped>
